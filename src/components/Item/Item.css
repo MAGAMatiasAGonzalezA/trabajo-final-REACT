@@ -1,0 +1,53 @@
+.card {
+    background-color: #233f68;
+    border-radius: 5px;
+    padding: 1.5rem;
+    /* flex-grow  flex-shrink  flex-basis; 
+    flex: 1 1 200px; */
+    margin: 1px 2px 1px 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* Nombre del producto */
+.name {
+    color: #f9fafb;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Descripción */
+.description {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+/* Precio */
+.price {
+    color: #f59e0b;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    /* recorta sin deformar */
+    object-fit: cover;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+}
