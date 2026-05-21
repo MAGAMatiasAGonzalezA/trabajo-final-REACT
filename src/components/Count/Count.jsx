@@ -1,19 +1,20 @@
-import { useState } from "react";
 import "./Count.css";
 
-export const Count = () => {
-    const [count, setCount] = useState(0);
+export const Count = ({ count, setCount, stock }) => {
 
-    // Funciones para incrementar y decrementar
     const increment = () => {
-        setCount(count + 1);
+        if (count < stock) {
+            setCount(count + 1);
+        }
     };
+
 
     const decrement = () => {
         if (count > 0) {
             setCount(count - 1);
         }
     };
+
 
     return (
         <div className="count-container">
@@ -27,7 +28,7 @@ export const Count = () => {
 
             <p>Cantidad: {count}</p>
 
-            <button className="btn primary" onClick={increment}>
+            <button className="btn primary" onClick={increment} disabled={count === stock}>
                 +
             </button>
         </div>
