@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import { getByCategory } from "../../services/productsService";
 import "./ItemListContainer.css"
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({ basePath = "/product" }) => {
+    const { category } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true)
 
-        fetch("/data/products.json")
-            .then((res) => res.json())
+        getByCategory(category)
             .then((data) => setProducts(data))
             .catch((err) => console.log("Algo salir mal:", err))
-            .finally(() => setLoading(false))
-    }, []);
+            .finally(() => setLoading(false));
+    }, [category]);
 
     if (loading) return <p>Cargando...</p>;
 
     return (
         <section>
 
-            <ItemList products={products} />
+            <ItemList products={products} basePath={basePath} />
         </section>
     );
 };
