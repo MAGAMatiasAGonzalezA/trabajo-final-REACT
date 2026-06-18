@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Dashboard.css";
+import "./DashBoard.css";
 import { useAuth } from "../../../context/AuthContext";
 
 export const DashBoard = () => {
